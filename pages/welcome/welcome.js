@@ -2,12 +2,11 @@ Page({
   data: {
     swiperConfig: {
       urls: [
-        '../../images/Desert.jpg',
         '../../images/Koala.jpg',
         '../../images/Tulips.jpg'
       ],
       indicatorDots: true,
-      indicatorColor: 'red',
+      indicatorColor: '#fff',
       indicatorActiveColor: 'blue',
       autoPlay: true,
       circular: true
