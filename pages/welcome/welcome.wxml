@@ -1,3 +1,23 @@
 <view>
-  <text>hello app</text>
+  <scroll-view scroll-y="true" style="height: 200px;" bindscroll="scroll">
+    <view class="red scroll-view-item"></view>
+    <view class="red scroll-view-item"></view>
+    <view class="red scroll-view-item"></view>
+    <view class="red scroll-view-item"></view>
+  </scroll-view>
 </view>
+
+<view>
+  <swiper 
+    indicator-dots="{{swiperConfig.indicatorDots}}"
+    indicator-color="{{swiperConfig.indicatorColor}}"
+    indicator-active-color="{{swiperConfig.indicatorActiveColor}}"
+    autoplay='{{swiperConfig.autoPlay}}'
+    circular='{{swiperConfig.circular}}'
+    >
+    <swiper-item wx:for="{{swiperConfig.urls}}">
+      <image src="{{item}}"/>
+    </swiper-item>
+  </swiper>
+</view>
+

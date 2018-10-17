@@ -1,1 +1,14 @@
 /* pages/welcome/welcome.wxss */
+.hover{
+  color: red;
+}
+.scroll-view-item{
+  height: 200px;
+  background: black;
+  border-bottom: 1px solid #fff;
+}
+
+swiper-item image{
+  width: 100%;
+  height: 100%;
+}
