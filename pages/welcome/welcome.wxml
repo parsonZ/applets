@@ -1,13 +1,5 @@
-<view>
-  <scroll-view scroll-y="true" style="height: 200px;" bindscroll="scroll">
-    <view class="red scroll-view-item"></view>
-    <view class="red scroll-view-item"></view>
-    <view class="red scroll-view-item"></view>
-    <view class="red scroll-view-item"></view>
-  </scroll-view>
-</view>
-
-<view>
+<!-- <view>
+  <text>swiper</text>
   <swiper 
     indicator-dots="{{swiperConfig.indicatorDots}}"
     indicator-color="{{swiperConfig.indicatorColor}}"
@@ -21,3 +13,77 @@
   </swiper>
 </view>
 
+<view>
+  <text>movable-view</text>
+  <movable-area style="width: 200px;height: 200px;background: red;">
+    <movable-view style="width: 50px;height: 50px;background: green;" direction="all" inertia="true" x="{{movable.x}}" y="{{movable.y}}">
+    </movable-view>
+  </movable-area>
+  <button size="mini" bindtap="tap">click me</button>
+</view>
+
+<view class="icon-view">
+  <text>icon:</text>
+  <block wx:for="{{icon.types}}">
+    <icon type="{{item}}" size="{{icon.size}}" color="{{icon.color}}"></icon>
+  </block>
+</view>
+
+<view>
+  <text>process</text>
+  <progress percent="80" show-info="true" active="true"></progress>
+</view>
+
+<view>
+  <text>button</text>
+  <button size="mini" type="primary" plain loading open-type='getUserInfo' bindgetuserinfo="getUser">按钮</button>
+</view>
+
+<view>
+  <text>form 表单</text>
+</view>
+<form bindsubmit="formSubmit">
+  <view>
+    <switch name="switch"></switch>
+  </view>
+  <view>
+    <slider show-value='true' name="slider"></slider>
+  </view>
+  <view>
+    <input name="input" confirm-type="go" type="text" adjust-position="true"></input>
+    <input name="input1" confirm-type="go" type="idcard" adjust-position="true"></input>
+    <input name="input2" confirm-type="go" type="number" adjust-position="true"></input>
+    <input name="input3" confirm-type="go" type="digit" adjust-position="true"></input>
+  </view>
+  <view>
+    <radio-group name="radio">
+      <label>
+        <radio value="radio1">radio1</radio>
+      </label>
+      <label>
+        <radio value="radio2">radio2</radio>
+      </label>
+    </radio-group>
+  </view>
+  <view>
+    <checkbox-group name="checkbox">
+      <label>
+        <checkbox value="checkbox1">checkbox1</checkbox>
+      </label>
+      <label>
+        <checkbox value="checkbox2">checkbox2</checkbox>
+      </label>
+    </checkbox-group>
+  </view>
+  <view style="height: 400px;"></view>
+  <view class="btn-view">
+    <button type="primary" form-type='submit'>submit</button>
+    <button form-type='reset'>reset</button>
+  </view>
+</form>
+ -->
+
+<view>
+  <navigator url="/pages/navigator/navigator?title=redirect">redirect</navigator>
+  <navigator url="/pages/navigator/navigator?title=redirect" hover-class="navigator-hover">跳转到新页面</navigator>
+</view>

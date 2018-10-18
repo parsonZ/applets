@@ -1,5 +1,12 @@
 {
   "pages": [
-    "pages/welcome/welcome"
-  ]
+    "pages/welcome/welcome",
+    "pages/navigator/navigator"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#eee",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  }
 }
