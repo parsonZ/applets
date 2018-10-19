@@ -1,12 +1,15 @@
 {
   "pages": [
     "pages/welcome/welcome",
-    "pages/navigator/navigator"
+    "pages/navigator/navigator",
+    "pages/camera/camera",
+    "pages/map/map",
+    "pages/canvas/canvas"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#eee",
+    "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "#fff"
   }
 }

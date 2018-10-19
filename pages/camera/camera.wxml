@@ -1,0 +1,6 @@
+<view class="section-view">
+  <camera device-position="back" flash="off" style="width: 100%; height: 300px;"></camera>
+  <button type="primary" bindtap="takePhoto">拍照</button>
+  <view><text>priview</text></view>
+  <image src="{{priviewSrc}}"></image>
+</view>

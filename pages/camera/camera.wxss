@@ -1,0 +1,4 @@
+/* pages/camera/camera.wxss */
+button{
+  margin: 10px 0;
+}

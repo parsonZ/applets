@@ -82,8 +82,44 @@
   </view>
 </form>
  -->
-
+<!-- 
 <view>
   <navigator url="/pages/navigator/navigator?title=redirect">redirect</navigator>
   <navigator url="/pages/navigator/navigator?title=redirect" hover-class="navigator-hover">跳转到新页面</navigator>
+</view> -->
+<!-- <view>
+  <audio style="width: 100%" id="myAudio" poster="{{audio.poster}}" name="{{audio.name}}" author="{{audio.author}}" src="{{audio.src}}" controls loop></audio>
+</view> -->
+<!-- <view>
+  <scroll-view scroll-y style="height: 200px;">
+    <view><image src="../../images/Koala.jpg" lazy-load="true"></image></view>
+    <view><image src="../../images/Koala.jpg" lazy-load="true"></image></view>
+    <view><image src="../../images/Koala.jpg" lazy-load="true"></image></view>
+    <view><image src="../../images/Koala.jpg" lazy-load="true"></image></view>
+    <view><image src="../../images/Koala.jpg" lazy-load="true"></image></view>
+    <view><image src="../../images/Koala.jpg" lazy-load="true"></image></view>
+    <view><image src="../../images/Koala.jpg" lazy-load="true"></image></view>
+    <view><image src="../../images/Koala.jpg" lazy-load></image></view>
+  </scroll-view>
+</view> -->
+<!-- <view>
+  <video style="width: 100%;" id="myVideo" src="{{video.src}}" danmu-list="{{video.danmuList}}" controls danmu-btn enable-danmu></video>
+</view> -->
+
+<view class="section-view">
+  <navigator url="/pages/camera/camera">
+    <button type="primary">director to camera</button>
+  </navigator>
+</view>
+
+<view class="section-view">
+  <navigator url="/pages/map/map">
+    <button type="primary">director to map</button>
+  </navigator>
+</view>
+
+<view class="section-view">
+  <navigator url="/pages/canvas/canvas">
+    <button type="primary">director to canvas</button>
+  </navigator>
 </view>
