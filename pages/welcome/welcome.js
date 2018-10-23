@@ -50,18 +50,18 @@ Page({
     //   }
     // })
 
-    wx.getSetting({
-      success: res => {
-        console.log(res)
-      }
-    })
+    // wx.getSetting({
+    //   success: res => {
+    //     console.log(res)
+    //   }
+    // })
 
-    wx.authorize({
-      scope: 'scope.address',
-      success: res => {
-        console.log(res)
-      }
-    })
+    // wx.authorize({
+    //   scope: 'scope.address',
+    //   success: res => {
+    //     console.log(res)
+    //   }
+    // })
 
     // wx.showActionSheet({
     //   itemList: ['A', 'B', 'C'],
@@ -97,7 +97,7 @@ Page({
     //   }
     // })
 
-    console.log(wx.getAccountInfoSync())
+    // console.log(wx.getAccountInfoSync())
   },
   scroll(){
     console.log('adhskj')

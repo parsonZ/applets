@@ -106,7 +106,7 @@
   <video style="width: 100%;" id="myVideo" src="{{video.src}}" danmu-list="{{video.danmuList}}" controls danmu-btn enable-danmu></video>
 </view> -->
 
-<view class="section-view">
+<!-- <view class="section-view">
   <navigator url="/pages/camera/camera">
     <button type="primary">director to camera</button>
   </navigator>
@@ -122,4 +122,7 @@
   <navigator url="/pages/canvas/canvas">
     <button type="primary">director to canvas</button>
   </navigator>
+</view> -->
+<view>
+  <image src="../../images/crab.png" style="width: 750rpx; height: 500rpx;"></image>
 </view>
