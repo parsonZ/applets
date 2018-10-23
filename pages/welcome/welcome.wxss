@@ -1,19 +1,36 @@
-/* pages/welcome/welcome.wxss */
-.hover{
-  color: red;
-}
-.scroll-view-item{
-  height: 200px;
-  background: black;
-  border-bottom: 1px solid #fff;
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #b3d4db;
 }
 
-swiper-item image{
-  width: 100%;
-  height: 100%;
+.userinfo-img{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  margin-top: 160rpx;
 }
-input{
-  border: 1px solid #ddd;
-  border-radius: 3px;
-  padding: 3px 5px;
+
+.userinfo-name{
+  margin-top: 100rpx;
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.start-btn{
+  margin-top: 200rpx;
+  background: none;
+  width: 250rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 5px;
+  color: #405f80;
+  border: 1px solid #405f80;
+  font-size: 22rpx;
+}
+
+page{
+  height: 100%;
+  background: #b3d4db;
 }
