@@ -29,7 +29,7 @@ page{
   margin-right: 20rpx;
 }
 .news-header text{
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 
 .news-body{
@@ -44,6 +44,22 @@ page{
   word-wrap: break-word;
   display: block;
   padding: 15rpx 20rpx;
+  letter-spacing: 2rpx;
+  font-size: 30rpx;
+  color: #666;
+  line-height: 50rpx;
 }
 
-.news-footer{}
+.news-footer{
+  display: flex;
+  padding: 15rpx 20rpx;
+}
+.news-footer image{
+  width: 32rpx;
+  height: 32rpx;
+  margin: 0 10rpx;
+}
+.news-footer text{
+  font-size: 26rpx;
+  color: #666;
+}

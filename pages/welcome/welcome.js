@@ -13,5 +13,10 @@ Page({
         app.global.userInfo = res.userInfo;
       }
     })
+  },
+  start(){
+    wx.switchTab({
+      url: '/pages/home/home'
+    })
   }
 })

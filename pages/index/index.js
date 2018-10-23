@@ -1,8 +1,8 @@
 Page({
   getUserInfo(e){
     if (e.detail.userInfo) {
-      wx.redirectTo({
-        url: '/pages/welcome/welcome'
+      wx.navigateTo({
+        url: '/pages/welcome/welcome',
       })
     }
   },

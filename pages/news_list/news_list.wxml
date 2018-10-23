@@ -6,7 +6,7 @@
   </block>
 </swiper>
 <view class="news-lists">
-  <view class="news-item">
+  <view class="news-item" wx:for="{{posts}}">
     <view class="news-header">
       <image src="{{userInfo.avatarUrl}}"></image>
       <text>{{userInfo.nickName}}</text>
@@ -18,7 +18,10 @@
     </view>
 
     <view class="news-footer">
-      footer
+      <image src="/images/icon/chat.png"></image>
+      <text>92</text>
+      <image src="/images/icon/view.png"></image>
+      <text>65</text>
     </view>
   </view>
 </view>

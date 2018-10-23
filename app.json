@@ -2,11 +2,35 @@
   "pages": [
     "pages/index/index",
     "pages/welcome/welcome",
-    "pages/news_list/news_list"
+    "pages/news_list/news_list",
+    "pages/movies/movies",
+    "pages/home/home"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#b3d4db",
     "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "images/tab/ciwei.png",
+        "selectedIconPath": "images/tab/ciwei_hl.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/news_list/news_list",
+        "iconPath": "images/tab/yuedu.png",
+        "selectedIconPath": "images/tab/yuedu_hl.png",
+        "text": "阅读"
+      },
+      {
+        "pagePath": "pages/movies/movies",
+        "iconPath": "images/tab/dianying.png",
+        "selectedIconPath": "images/tab/dianying.png",
+        "text": "阅读"
+      }
+    ]
   }
 }
