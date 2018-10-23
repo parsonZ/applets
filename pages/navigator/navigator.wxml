@@ -1,2 +1,0 @@
-<!--pages/navigator/navigator.wxml-->
-<view style="text-align:center"> {{title}} </view>
