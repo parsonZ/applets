@@ -1,3 +1,5 @@
+const app = getApp();
+
 Page({
   data: {
     userInfo: null
@@ -8,6 +10,7 @@ Page({
         this.setData({
           userInfo: res.userInfo
         })
+        app.global.userInfo = res.userInfo;
       }
     })
   }

@@ -1,0 +1,24 @@
+<swiper class="swiper-container" indicator-dots autoplay circular>
+  <block wx:for="{{posts}}">
+    <swiper-item>
+      <image src="{{item}}"></image>
+    </swiper-item>
+  </block>
+</swiper>
+<view class="news-lists">
+  <view class="news-item">
+    <view class="news-header">
+      <image src="{{userInfo.avatarUrl}}"></image>
+      <text>{{userInfo.nickName}}</text>
+    </view>
+
+    <view class="news-body">
+      <image src="{{defaultNewsPic}}"></image>
+      <text>{{defaultNewsDsc}}</text>
+    </view>
+
+    <view class="news-footer">
+      footer
+    </view>
+  </view>
+</view>

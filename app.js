@@ -1,0 +1,5 @@
+App({
+  global: {
+    userInfo: null
+  }
+})

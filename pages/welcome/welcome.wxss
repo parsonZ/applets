@@ -28,6 +28,12 @@
   color: #405f80;
   border: 1px solid #405f80;
   font-size: 22rpx;
+  text-align: center;
+}
+
+.hover-class{
+  background: #405f80;
+  color: #fff;
 }
 
 page{

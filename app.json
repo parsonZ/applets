@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/welcome/welcome"    
+    "pages/welcome/welcome",
+    "pages/news_list/news_list"
   ],
   "window": {
     "backgroundTextStyle": "light",
