@@ -6,7 +6,8 @@ Page({
     height: 500,
     columns: null,
     drops: [],
-    ctx: null
+    ctx: null,
+    setInterval: null
   },
   onReady(){
     this.data.ctx = wx.createCanvasContext('myCanvas', this)
@@ -15,11 +16,14 @@ Page({
       this.data.drops[i] = i * this.data.fontSize
     }
 
-    setInterval(() =>{
+    this.setInterval = setInterval(() =>{
       this.drawText();
       this.data.ctx.setFillStyle('rgba(0,0,0,0.1)')
       this.data.ctx.fillRect(0,0,this.data.ctx.width, this.data.ctx.height)
     }, 100)
+  },
+  onUnload(){
+    clearInterval(this.setInterval)
   },
   drawText(){
     const data = this.data;
