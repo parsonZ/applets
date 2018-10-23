@@ -1,5 +1,5 @@
 <view class="container">
   <image src="{{userInfo.avatarUrl}}" class="userinfo-img"></image>
   <text class="userinfo-name">{{userInfo.nickName}}</text>
-    <navigator hover-class="hover-class" class="start-btn" bindtap="start">开启小程序之旅</navigator>
+    <button hover-class="hover-class" class="start-btn" bindtap="start">开启小程序之旅</button>
 </view>

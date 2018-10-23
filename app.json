@@ -28,8 +28,8 @@
       {
         "pagePath": "pages/movies/movies",
         "iconPath": "images/tab/dianying.png",
-        "selectedIconPath": "images/tab/dianying.png",
-        "text": "阅读"
+        "selectedIconPath": "images/tab/dianying_hl.png",
+        "text": "电影"
       }
     ]
   }
