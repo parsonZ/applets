@@ -42,6 +42,62 @@ Page({
   onReady(){
     this.audioCtx = wx.createAudioContext('myAudio', this)
     this.videoCtx = wx.createVideoContext('myVideo', this)
+
+    // console.log(getCurrentPages())
+    // wx.login({
+    //   success: res => {
+    //     console.log(res)
+    //   }
+    // })
+
+    wx.getSetting({
+      success: res => {
+        console.log(res)
+      }
+    })
+
+    wx.authorize({
+      scope: 'scope.address',
+      success: res => {
+        console.log(res)
+      }
+    })
+
+    // wx.showActionSheet({
+    //   itemList: ['A', 'B', 'C'],
+    //   success(res) {
+    //     console.log(res.tapIndex)
+    //   },
+    //   fail(res) {
+    //     console.log(res.errMsg)
+    //   }
+    // })
+
+    // wx.showLoading({
+    //   title: '加载中',
+    // })
+
+    // setTimeout(function () {
+    //   wx.hideLoading()
+    // }, 2000)
+    // wx.showToast({
+    //   title: '成功',
+    //   icon: 'success',
+    //   duration: 2000
+    // })
+    // wx.showModal({
+    //   title: '提示',
+    //   content: '这是一个模态弹窗',
+    //   success(res) {
+    //     if (res.confirm) {
+    //       console.log('用户点击确定')
+    //     } else if (res.cancel) {
+    //       console.log('用户点击取消')
+    //     }
+    //   }
+    // })
+
+    console.log(wx.getAccountInfoSync())
   },
   scroll(){
     console.log('adhskj')

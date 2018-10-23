@@ -6,6 +6,18 @@
     "pages/map/map",
     "pages/canvas/canvas"
   ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/welcome/welcome",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/map/map",
+        "text": "日志"
+      }
+    ]
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000",
