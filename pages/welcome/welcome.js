@@ -5,6 +5,7 @@ Page({
         '../../images/Koala.jpg',
         '../../images/Tulips.jpg'
       ],
+      
       indicatorDots: false,
       indicatorColor: '#fff',
       indicatorActiveColor: 'blue',
