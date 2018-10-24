@@ -1,1 +1,63 @@
-/* pages/movies/movies.wxss */
+page {
+  background: #f1f1f1;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.searchIcon {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  left: 30rpx;
+}
+
+.searchInput {
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  padding: 0 80rpx;
+  width: 100%;
+}
+
+.movie-list {
+  background: #fff;
+  padding: 0 30rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.mb50{
+  margin-bottom: 50rpx;
+}
+
+.movie-list-title {
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.reying-more, .shangying-more {
+  color: #4183c4;
+}
+
+.more-icon {
+  width: 15rpx;
+  height: 19rpx;
+  margin-left: 10rpx;
+}
+
+.movie-list-content {
+  display: flex;
+  padding: 20rpx 0;
+  white-space:nowrap;
+}
+
+.movie-list-content image {
+  width: 200rpx;
+  height: 350rpx;
+  margin:0 15rpx;
+}
