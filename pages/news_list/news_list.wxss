@@ -1,3 +1,5 @@
+@import '../../template/template.wxss';
+
 page{
   background: #f1f1f1;
 }
@@ -17,49 +19,3 @@ page{
   margin: 20rpx 0;
 }
 
-.news-header{
-  display: flex;
-  align-items: center;
-  padding: 15rpx 20rpx;
-}
-.news-header image{
-  width: 55rpx;
-  height: 55rpx;
-  border-radius: 50%;
-  margin-right: 20rpx;
-}
-.news-header text{
-  font-size: 28rpx;
-}
-
-.news-body{
-
-}
-.news-body image{
-  width: 750rpx;
-  height: 350rpx;
-}
-.news-body text{
-  word-break: keep-all;
-  word-wrap: break-word;
-  display: block;
-  padding: 15rpx 20rpx;
-  letter-spacing: 2rpx;
-  font-size: 30rpx;
-  color: #666;
-  line-height: 50rpx;
-}
-
-.news-footer{
-  display: flex;
-  padding: 15rpx 20rpx;
-}
-.news-footer image{
-  width: 32rpx;
-  height: 32rpx;
-  margin: 0 10rpx;
-}
-.news-footer text{
-  font-size: 26rpx;
-  color: #666;
-}

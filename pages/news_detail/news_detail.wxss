@@ -1,0 +1,122 @@
+/*导入评论区css*/
+@import '../../template/template.wxss';
+
+page {
+  background: #f1f1f1;
+}
+
+.container {
+  background: #fff;
+}
+
+.container::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.static-img {
+  width: 750rpx;
+  height: 450rpx;
+}
+
+.detail-header {
+  display: flex;
+  height: 100rpx;
+  line-height: 100rpx;
+  align-items: center;
+  color: #666;
+  font-size: 28rpx;
+  padding: 0 20rpx;
+}
+
+.detail-header text {
+  margin: 0 15rpx;
+}
+
+.detail-header .avatar-img {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
+.text-title {
+  line-height: 70rpx;
+  font-size: 35rpx;
+  padding: 0 20rpx;
+  min-height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+
+.tools {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.tools .line {
+  border: 1px solid #ddd;
+  width: 700rpx;
+  position: absolute;
+  right: 25rpx;
+}
+
+.tools image {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  margin: 0 20rpx;
+  position: relative;
+  z-index: 2;
+}
+
+.text-detail {
+  font-size: 30rpx;
+  padding: 20rpx;
+  text-indent: 2em;
+  line-height: 60rpx;
+}
+
+.details-comment {
+  display: block;
+  padding: 20rpx;
+  text-align: right;
+}
+
+.details-comment image {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 0 20rpx;
+}
+
+.details-comment text {
+  color: #666;
+  font-size: 28rpx;
+  top: -4px;
+  position: relative;
+}
+
+.comment-container {
+  background: #f1f1f1;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  color: #666;
+  font-size: 30rpx;
+  position: relative;
+}
+.comment-container::before{
+  content: '';
+  width: 20rpx;
+  height: 20rpx;
+  border-top: 2px solid green;
+  border-left: 2px solid green;
+  transform: rotate(-135deg) translateX(-50%);
+  position: absolute;
+  left: 50%;
+  top: -20rpx;
+  z-index: 1;
+  background: #fff;
+}

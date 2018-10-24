@@ -4,7 +4,7 @@ Page({
   data: {
     userInfo: {}
   },
-  onLoad(){
+  onLoad() {
     wx.getUserInfo({
       success: res => {
         this.setData({
@@ -14,7 +14,7 @@ Page({
       }
     })
   },
-  start(){
+  start() {
     wx.switchTab({
       url: '/pages/home/home'
     })

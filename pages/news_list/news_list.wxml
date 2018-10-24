@@ -1,3 +1,4 @@
+<import src="../../template/template.wxml" />
 <swiper class="swiper-container" indicator-dots autoplay circular>
   <block wx:for="{{posts}}">
     <swiper-item>
@@ -5,23 +6,8 @@
     </swiper-item>
   </block>
 </swiper>
-<view class="news-lists">
-  <view class="news-item" wx:for="{{posts}}">
-    <view class="news-header">
-      <image src="{{userInfo.avatarUrl}}"></image>
-      <text>{{userInfo.nickName}}</text>
-    </view>
-
-    <view class="news-body">
-      <image src="{{defaultNewsPic}}"></image>
-      <text>{{defaultNewsDsc}}</text>
-    </view>
-
-    <view class="news-footer">
-      <image src="/images/icon/chat.png"></image>
-      <text>92</text>
-      <image src="/images/icon/view.png"></image>
-      <text>65</text>
-    </view>
+<block wx:for="{{posts_content}}">
+  <view catchtap="gotodetail" data-post-id="{{item.postId}}">
+    <template is="news-item" data="{{item}}" />
   </view>
-</view>
+</block>

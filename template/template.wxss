@@ -1,0 +1,95 @@
+/*新闻区*/
+
+.news-header {
+  display: flex;
+  align-items: center;
+  padding: 15rpx 20rpx;
+}
+
+.news-header image {
+  width: 55rpx;
+  height: 55rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.news-header text {
+  font-size: 28rpx;
+}
+
+.news-body {
+}
+
+.news-body image {
+  width: 750rpx;
+  height: 350rpx;
+}
+
+.news-body text {
+  word-break: keep-all;
+  word-wrap: break-word;
+  padding: 15rpx 20rpx;
+  letter-spacing: 2rpx;
+  font-size: 30rpx;
+  color: #666;
+  line-height: 50rpx;
+  display: -webkit-box;
+  text-overflow: hidden;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.news-footer {
+  display: flex;
+  padding: 15rpx 20rpx;
+}
+
+.news-footer image {
+  width: 32rpx;
+  height: 32rpx;
+  margin: 0 10rpx;
+}
+
+.news-footer text {
+  font-size: 26rpx;
+  color: #666;
+}
+
+/*评论区*/
+
+.comment-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+}
+.comment-item:first-child{
+  border-top: 2px solid green;
+}
+
+.comment-header .comment-img {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.comment-body {
+  margin: 0 78rpx;
+  color:#333;
+}
+.comment-body::before{
+  border:1px solid green;
+  content: '';
+  margin-right: 5rpx;
+}
+
+.comment-footer {
+  padding: 20rpx;
+  text-align: right;
+  font-size: 25rpx;
+}

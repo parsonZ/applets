@@ -1,0 +1,42 @@
+<import src="../../template/template.wxml" />
+
+<view class="container">
+  <image src="{{details.imgSrc}}" class="static-img"></image>
+
+  <view class="detail-header">
+    <image class="avatar-img" src="{{details.avatar}}"></image>
+    <text>{{details.author}}</text>
+    <text>发表于</text>
+    <text>{{details.dateTime}}</text>
+  </view>
+
+  <view class="text-title">
+    {{details.title}}
+  </view>
+
+  <view class="tools">
+    <view class="line"></view>
+    <image wx:if="{{details.collected}}" class="collection-img" src="../../images/icon/collection.png" bindtap="onCollection"></image>
+    <image wx:else class="collection-img" src="../../images/icon/collection-anti.png" bindtap="onCollection"></image>
+
+    <image class="share-img" wx:if="{{details.shared}}" src="../../images/icon/share.png" bindtap="onShare"></image>
+    <image class="share-img" wx:else src="../../images/icon/share-anti.png" bindtap="onShare"></image>
+  </view>
+
+  <view class="text-detail">
+    {{details.detail}}
+  </view>
+
+  <view class="details-comment">
+    <view bindtap="onViewComments" style="display: inline-block;">
+      <image src="/images/icon/chat1.png"></image>
+      <text>110</text>
+    </view>
+  </view>
+
+  <view animation="{{animationData}}" class="comment-container">
+    <block wx:for="{{comments}}">
+      <template is="comment-item" data="{{item}}" />
+    </block>
+  </view>
+</view>
