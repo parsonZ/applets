@@ -1,3 +1,4 @@
+<!--阅读区-->
 <template name="news-item">
   <view class="news-item">
     <view class="news-header">
@@ -19,7 +20,7 @@
     </view>
   </view>
 </template>
-
+<!--评论区-->
 <template name="comment-item">
   <view class="comment-item">
     <view class="comment-header">
@@ -31,6 +32,130 @@
     </view>
     <view class="comment-footer">
       发表于:{{item.dateTime}}
+    </view>
+  </view>
+</template>
+
+<!--影片首页列表区-->
+<template name="movie-start-list">
+  <view class="movie-list mb50">
+    <view class="movie-list-title">
+      <text>正在热映</text>
+      <view catchtap="onMoviesMore" data-type="0">
+        <text class="shangying-more">更多</text>
+        <image class="more-icon" src="/images/icon/arrow-right.png"></image>
+      </view>
+    </view>
+    <scroll-view class="movie-list-content" scroll-x="true">
+      <view class="movie-wrap" wx:for="{{moviesList.now_showing}}" data-id="{{item.id}}" catchtap="onMovieDetail">
+        <image src="{{item.images.small}}"></image>
+        <text class="movie-title">{{item.title}}</text>
+        <template is="stars" data="{{item}}" />
+      </view>
+    </scroll-view>
+  </view>
+
+  <view class="movie-list">
+    <view class="movie-list-title">
+      <text>TOP 250</text>
+      <view catchtap="onMoviesMore" data-type="1">
+        <text class="shangying-more">更多</text>
+        <image class="more-icon" src="/images/icon/arrow-right.png"></image>
+      </view>
+    </view>
+    <scroll-view class="movie-list-content" scroll-x="true">
+      <view class="movie-wrap" wx:for="{{moviesList.comming_soon}}" data-id="{{item.id}}" catchtap="onMovieDetail">
+        <image src="{{item.images.small}}"></image>
+        <text class="movie-title">{{item.title}}</text>
+        <template is="stars" data="{{item}}" />
+      </view>
+    </scroll-view>
+  </view>
+</template>
+
+<!--星级区-->
+<template name="stars">
+  <view class="stars">
+    <image src="{{item.rating.average/2 < nate ? '/images/icon/none-star.png' : '/images/icon/star.png'}}" wx:for="{{[1,2,3,4,5]}}" wx:for-item="nate"></image>
+    <text class="score">{{item.rating.average}}</text>
+  </view>
+</template>
+<template name="stars1">
+  <view class="stars">
+    <image src="{{movieDetails.rating.average/2 < nate ? '/images/icon/none-star.png' : '/images/icon/star.png'}}" wx:for="{{[1,2,3,4,5]}}" wx:for-item="nate"></image>
+    <text class="score">{{movieDetails.rating.average}}</text>
+  </view>
+</template>
+
+<!--热门-上映列表区-->
+<template name="moviesMore">
+  <view class="movie-wrap" wx:for="{{movies}}" wx:for-item="item" catchtap="onMovieDetail" data-id="{{item.id}}">
+    <image src="{{item.images.small}}" class="movie-img"></image>
+    <text class="movie-title">{{item.title}}</text>
+    <template is="stars" data="{{item}}" />
+  </view>
+</template>
+
+<!--影片详情-->
+<template name="movieDetails">
+  <view style="overflow: hidden;">
+    <view class="m_header m_module" style="background: url('{{movieDetails.images.medium}}') 0 0 no-repeat;background-size:100% 100%;">
+    </view>
+    <view class="m_header" style="filter:none;position:absolute;top:0;left:0;width: 100%;">
+      <view class="m_title">
+        {{movieDetails.title}}
+      </view>
+      <view class="m_time">
+        <text>{{movieDetails.countries[0]}}</text>
+        <text>{{movieDetails.year}}</text>
+      </view>
+      <view class="m_number">
+        <text>{{movieDetails.collect_count}}</text>
+        <text class="m_text">人喜欢</text>
+        <text>{{movieDetails.comments_count}}</text>
+        <text class="m_text">条评论</text>
+      </view>
+    </view>
+    <image class="image-hover" src="{{movieDetails.images.small}}"></image>
+  </view>
+
+  <view class="m_body">
+    <view class="m_arai_title m_module">{{movieDetails.original_title}}</view>
+    <view class="m_rate m_module">
+      <text class="m_aside">评分</text>
+      <template is="stars1" data="{{movieDetails}}"/>
+    </view>
+    <view class="m_director m_module">
+      <text class="m_aside">导演</text>
+      <text>
+        <block wx:for="{{movieDetails.directors}}" wx:for-index="index">{{item.name}}{{index<movieDetails.directors.length-1? ' / ': ''}}</block>
+      </text>
+    </view>
+    <view class="m_actor m_module">
+      <text class="m_aside">影人</text>
+      <text>
+        <block wx:for="{{movieDetails.casts}}" wx:for-index="index">{{item.name}}{{index<movieDetails.casts.length-1? ' / ': ''}}</block>
+      </text>
+    </view>
+    <view class="m_type m_module">
+      <text class="m_aside">类型</text>
+      <text>
+        <block wx:for="{{movieDetails.genres}}" wx:for-index="index">{{item}}{{index<movieDetails.genres.length-1? ' / ': ''}}</block>
+      </text>
+    </view>
+
+    <view class="m_description">
+      <view class="m_body_title">剧情简介</view>
+      <view class="m_con">
+        {{movieDetails.summary}}
+      </view>
+    </view>
+
+    <view class="m_filmmaker m_module">
+      <view class="m_body_title">影人</view>
+      <scroll-view scroll-x="true" scroll-left="20">
+        <image wx:for="{{movieDetails.casts}}" src="{{item.avatars.small}}"></image>
+      </scroll-view>
     </view>
   </view>
 </template>

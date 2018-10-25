@@ -20,6 +20,16 @@ page {
   height: 450rpx;
 }
 
+.music-img {
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .detail-header {
   display: flex;
   height: 100rpx;
@@ -107,7 +117,8 @@ page {
   font-size: 30rpx;
   position: relative;
 }
-.comment-container::before{
+
+.comment-container::before {
   content: '';
   width: 20rpx;
   height: 20rpx;

@@ -1,5 +1,3 @@
-import { local_database as local_posts_data } from '../../data/posts-data.js'
-
 const app = getApp();
 
 Page({
@@ -13,9 +11,15 @@ Page({
     posts_content: []
   },
   onLoad(){
-    this.setData({ 
-      userInfo: app.global.userInfo,
-      posts_content: local_posts_data
+    wx.showLoading({
+      title: '正在加载...',
+      success: res => {
+        this.setData({
+          userInfo: app.global.userInfo,
+          posts_content: app.global.newList
+        })
+        wx.hideLoading()
+      }
     })
   },
   gotodetail(e){

@@ -1,36 +1,8 @@
+<import src="../../template/template.wxml" />
+
 <view class="search">
   <image class="searchIcon" src="/images/icon/search.png"></image>
   <input class="searchInput" type="text" placeholder="关键字" confirm-type="search" value="{{searchValue}}"></input>
 </view>
 
-<view class="movie-list mb50">
-  <view class="movie-list-title">
-    <text>正在热映</text>
-     <view>
-      <text class="shangying-more">更多</text><image class="more-icon" src="/images/icon/arrow-right.png"></image>
-    </view>
-  </view>
-  <scroll-view class="movie-list-content" scroll-x="true">
-    <image src="/images/post/vr.png"></image>
-    <image src="/images/post/vr.png"></image>
-    <image src="/images/post/vr.png"></image>
-    <image src="/images/post/vr.png"></image>
-    <image src="/images/post/vr.png"></image>
-  </scroll-view>
-</view>
-
-<view class="movie-list">
-  <view class="movie-list-title">
-    <text>即将上映</text>
-    <view>
-      <text class="shangying-more">更多</text><image class="more-icon" src="/images/icon/arrow-right.png"></image>
-    </view>
-  </view>
-  <scroll-view class="movie-list-content" scroll-x="true">
-    <image src="/images/post/vr.png"></image>
-    <image src="/images/post/vr.png"></image>
-    <image src="/images/post/vr.png"></image>
-    <image src="/images/post/vr.png"></image>
-    <image src="/images/post/vr.png"></image>
-  </scroll-view>
-</view>
+<template is="movie-start-list" data="{{moviesList}}"/>

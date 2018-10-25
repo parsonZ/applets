@@ -9,7 +9,8 @@ Page({
     comments: local_posts_data,
     showComment: false,
     shareText: ['分享给微信好友', '分享至微博', '分享至朋友圈'],
-    animationData: {}
+    animationData: {},
+    is_music_play: false
   },
   onLoad(option) {
     const content = this.data.post_content;
@@ -17,34 +18,40 @@ Page({
       return value.postId == option.postid
     })
 
-    this.setData({
-      details: details
+    wx.showLoading({
+      title: '正在加载...',
+      success: res => {
+        this.setData({
+          details: details
+        })
+        wx.hideLoading()
+      }
+    })
+
+    wx.onBackgroundAudioPlay(()=>{
+      this.setData({
+        is_music_play: true
+      })
+    })
+
+    wx.onBackgroundAudioPause(() => {
+      this.setData({
+        is_music_play: false
+      })
     })
   },
   onCollection() { //收藏
     const _this = this.data.details;
     const c = 'details.collected';
-    if (_this.collected) {
-      wx.showToast({
-        title: '取消收藏成功',
-        image: '../../images/icon/collection.png',
-        success: res => {
-          this.setData({
-            [c]: 0
-          })
-        }
-      })
-    } else {
-      wx.showToast({
-        title: '收藏成功',
-        image: '../../images/icon/collection.png',
-        success: res => {
-          this.setData({
-            [c]: 1
-          })
-        }
-      })
-    }
+    wx.showToast({
+      title: _this.collected ? '取消收藏' : '收藏成功',
+      image: '../../images/icon/collection.png',
+      success: res => {
+        this.setData({
+          [c]: _this.collected ? 0 : 1
+        })
+      }
+    })
   },
   onShare() { //分享
     const _this_sharetext = this.data.shareText;
@@ -98,11 +105,34 @@ Page({
           }
         })
       }, 2000)
-    }else{
+    } else {
       animation.height('0').step()
       this.setData({
         animationData: animation.export(),
         showComment: false
+      })
+    }
+  },
+  onMusicControl(){
+    const details = this.data.details;
+    if (this.data.is_music_play){
+      wx.pauseBackgroundAudio({
+        complete: ()=>{
+          this.setData({
+            is_music_play: false
+          })
+        }
+      })
+    }else{
+      wx.playBackgroundAudio({
+        dataUrl: details.music.url,
+        title: details.music.title,
+        coverImgUrl: details.music.coverImg,
+        success: () => {
+          this.setData({
+            is_music_play: true
+          })
+        }
       })
     }
   }

@@ -1,8 +1,10 @@
 <import src="../../template/template.wxml" />
 
 <view class="container">
-  <image src="{{details.imgSrc}}" class="static-img"></image>
-
+  <view style="position: relative;">
+    <image src="{{details.imgSrc}}" class="static-img"></image>
+    <image src="{{is_music_play ? '/images/music/music-stop.png' : '/images/music/music-start.png' }}" class="music-img" catchtap="onMusicControl"></image>
+  </view>
   <view class="detail-header">
     <image class="avatar-img" src="{{details.avatar}}"></image>
     <text>{{details.author}}</text>

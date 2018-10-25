@@ -67,7 +67,8 @@
   align-items: center;
   padding: 20rpx;
 }
-.comment-item:first-child{
+
+.comment-item:first-child {
   border-top: 2px solid green;
 }
 
@@ -80,10 +81,11 @@
 
 .comment-body {
   margin: 0 78rpx;
-  color:#333;
+  color: #333;
 }
-.comment-body::before{
-  border:1px solid green;
+
+.comment-body::before {
+  border: 1px solid green;
   content: '';
   margin-right: 5rpx;
 }
@@ -92,4 +94,195 @@
   padding: 20rpx;
   text-align: right;
   font-size: 25rpx;
+}
+
+/*影片首页列表区*/
+
+.movie-list {
+  background: #fff;
+  padding: 0 30rpx;
+  font-size: 30rpx;
+  color: #666;
+}
+
+.mb50 {
+  margin-bottom: 50rpx;
+}
+
+.movie-list-title {
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.reying-more, .shangying-more {
+  color: #4183c4;
+}
+
+.more-icon {
+  width: 15rpx;
+  height: 19rpx;
+  margin-left: 10rpx;
+}
+
+.movie-list-content {
+  display: flex;
+  padding-bottom: 20rpx;
+  white-space: nowrap;
+}
+
+.movie-list-content .movie-wrap, .movie-list-content image {
+  width: 200rpx;
+  height: 350rpx;
+  margin: 0 15rpx;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.movie-list-content image {
+  height: 250rpx;
+  margin: 0;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.movie-title {
+  font-size: 28rpx;
+  width: 100%;
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/*星级区*/
+
+.stars {
+  display: flex;
+  align-items: center;
+}
+
+.stars image {
+  width: 22rpx;
+  height: 22rpx;
+  margin: 0 2rpx;
+}
+
+.stars .score {
+  font-size: 22rpx;
+  margin-left: 10rpx;
+}
+
+/*热门-上映列表区*/
+
+.movie-wrap {
+  display: inline-block;
+  width: 195rpx;
+  height: 360rpx;
+  margin: 20rpx;
+}
+
+.movie-wrap .movie-img {
+  width: 100%;
+  height: 270rpx;
+}
+
+/*--影片详情--*/
+
+.m_header {
+  height: 320rpx;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  -webkit-filter: blur(10rpx);
+}
+
+.image-hover {
+  width: 180rpx;
+  height: 240rpx;
+  position: absolute;
+  right: 40rpx;
+  transform: translateY(-70%);
+}
+
+.m_module {
+  padding: 0 40rpx;
+}
+
+.m_header .m_title {
+  font-size: 50rpx;
+  font-weight: bold;
+}
+
+.m_header .m_time {
+  font-size: 35rpx;
+}
+
+.m_header .m_number {
+  font-size: 30rpx;
+  color: #e34b68;
+}
+
+.m_header .m_text {
+  color: #666;
+}
+
+.m_header view {
+  margin: 20rpx 40rpx;
+}
+
+.m_body .m_arai_title {
+  height: 110rpx;
+  line-height: 110rpx;
+  margin-bottom: 0;
+  font-size: 30rpx;
+}
+
+.m_body view {
+  margin: 20rpx 0;
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  text-align: left;
+}
+
+.m_body .m_aside {
+  color: #999;
+  margin-right: 20rpx;
+  white-space:nowrap;
+}
+
+.m_body .m_description {
+  display: block;
+  padding: 50rpx 40rpx;
+  border-top: 2rpx solid #ddd;
+  border-bottom: 2rpx solid #ddd;
+  margin: 50rpx 0;
+}
+
+.m_body .m_filmmaker {
+  display:block;
+  margin-bottom: 50rpx;
+}
+
+.m_body .m_body_title {
+  color: #999;
+  font-size: 32rpx;
+}
+
+.m_body .m_con {
+  line-height: 60rpx;
+}
+
+.m_filmmaker scroll-view {
+  height: 400rpx;
+  display: flex;
+  white-space: nowrap;
+}
+
+.m_filmmaker scroll-view image {
+  width: 250rpx;
+  height: 300rpx;
+  margin: 30rpx 20rpx;
 }

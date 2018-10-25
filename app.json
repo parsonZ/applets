@@ -5,7 +5,9 @@
     "pages/news_list/news_list",
     "pages/movies/movies",
     "pages/home/home",
-    "pages/news_detail/news_detail"
+    "pages/news_detail/news_detail",
+    "pages/movies_more/movies_more",
+    "pages/movie_detail/movie_detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,9 @@
+@import '/template/template.wxss';
+
+page {
+  background: #fff;
+}
+
+.container {
+  padding: 20rpx;
+}
