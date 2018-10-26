@@ -1,4 +1,13 @@
 <import src="../../template/template.wxml" />
+<view class="filter-tag" wx:if="{{isFilter}}" animation="{{animationTag}}">
+  <view class="tag-item" style="color: {{item.selected?'#fff':'inherit'}};background: {{item.selected?'#405f80':'#fff'}}" wx:for="{{tagsArr}}" catchtap="getAllMovies" data-id="{{item.id}}" data-text="{{item.name}}" data-selected="{{item.selected}}">
+    <text>{{item.name}}</text>
+  </view>
+</view>
 <view class="container">
-  <template is="moviesMore" data="{{movies}}"/>
+  <template is="moviesMore" data="{{movies}}" wx:if="{{!isFilter}}"/>
+  <template is="tagMoviesMore" data="{{movies}}" wx:else/>
+  <view wx:if="{{!isMore}}" class="no-more">
+    没有更多
+  </view>
 </view>

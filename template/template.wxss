@@ -239,20 +239,20 @@
   font-size: 30rpx;
 }
 
-.m_body view {
-  margin: 20rpx 0;
+.m_body {
   font-size: 28rpx;
-  display: flex;
-  align-items: center;
-  text-align: left;
+  line-height:52rpx;
 }
 
 .m_body .m_aside {
   color: #999;
   margin-right: 20rpx;
-  white-space:nowrap;
+  white-space: nowrap;
 }
-
+.m_rate{
+  display: flex;
+  align-items: center;
+}
 .m_body .m_description {
   display: block;
   padding: 50rpx 40rpx;
@@ -262,7 +262,7 @@
 }
 
 .m_body .m_filmmaker {
-  display:block;
+  display: block;
   margin-bottom: 50rpx;
 }
 
@@ -281,8 +281,41 @@
   white-space: nowrap;
 }
 
+.m_filmmaker scroll-view view {
+  width: 200rpx;
+  height: 400rpx;
+  margin: 0 20rpx;
+  display: inline-block;
+}
+
 .m_filmmaker scroll-view image {
-  width: 250rpx;
+  width: 100%;
   height: 300rpx;
-  margin: 30rpx 20rpx;
+  margin: 20rpx 0;
+}
+
+.m_filmmaker scroll-view text {
+  display: block;
+  text-align: center;
+}
+
+.m_photos {
+  display: block !important;
+}
+
+.m_photos scroll-view {
+  display: flex;
+  white-space: nowrap;
+}
+
+.m_photos scroll-view image {
+  width: 200rpx;
+  height: 300rpx;
+  margin: 20rpx;
+}
+.m_comments {
+  margin:20rpx 0;
+}
+.m_comments, .m_comments .comment-item{
+  display: block !important;
 }

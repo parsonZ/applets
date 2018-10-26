@@ -10,7 +10,6 @@ Page({
       title: '正在加载...',
       success() {
         that.getMovieDetails(option.id)
-        wx.hideLoading()
       }
     })
   },
@@ -28,10 +27,10 @@ Page({
         })
       })
       .then(res => {
-        console.log(res)
         that.setData({
           movieDetails: res
         })
+        wx.hideLoading()
       }).catch(err => console.log(err))
   }
 })

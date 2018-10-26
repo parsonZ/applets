@@ -20,7 +20,7 @@
     </view>
   </view>
 </template>
-<!--评论区-->
+<!--阅读评论区-->
 <template name="comment-item">
   <view class="comment-item">
     <view class="comment-header">
@@ -35,7 +35,22 @@
     </view>
   </view>
 </template>
-
+<!--电影评论区-->
+<template name="comment-movies">
+  <view class="comment-item">
+    <view class="comment-header" style="padding: 20rpx 0;">
+      <image class="comment-img" src="{{item.author.avatar}}"></image>
+      <text>{{item.author.name}}</text>
+    </view>
+    <view class="comment-body" style="margin: 0;">
+      {{item.content}}
+    </view>
+    <view class="comment-footer" style="text-align: left;padding: 20rpx 0;">
+      <text>{{item.useful_count}}赞同</text>
+      <text style="float: right;">发表于:{{item.created_at}}</text>
+    </view>
+  </view>
+</template>
 <!--影片首页列表区-->
 <template name="movie-start-list">
   <view class="movie-list mb50">
@@ -86,13 +101,27 @@
     <text class="score">{{movieDetails.rating.average}}</text>
   </view>
 </template>
+<template name="stars2">
+  <view class="stars">
+    <image src="{{item.rate/2 < nate ? '/images/icon/none-star.png' : '/images/icon/star.png'}}" wx:for="{{[1,2,3,4,5]}}" wx:for-item="nate"></image>
+    <text class="score">{{item.rate}}</text>
+  </view>
+</template>
 
-<!--热门-上映列表区-->
+<!--全部列表区-->
 <template name="moviesMore">
   <view class="movie-wrap" wx:for="{{movies}}" wx:for-item="item" catchtap="onMovieDetail" data-id="{{item.id}}">
     <image src="{{item.images.small}}" class="movie-img"></image>
     <text class="movie-title">{{item.title}}</text>
     <template is="stars" data="{{item}}" />
+  </view>
+</template>
+<!--tag列表区-->
+<template name="tagMoviesMore">
+  <view class="movie-wrap" wx:for="{{movies}}" wx:for-item="item" catchtap="onMovieDetail" data-id="{{item.id}}">
+    <image src="{{item.cover}}" class="movie-img"></image>
+    <text class="movie-title">{{item.title}}</text>
+    <template is="stars2" data="{{item}}" />
   </view>
 </template>
 
@@ -123,7 +152,7 @@
     <view class="m_arai_title m_module">{{movieDetails.original_title}}</view>
     <view class="m_rate m_module">
       <text class="m_aside">评分</text>
-      <template is="stars1" data="{{movieDetails}}"/>
+      <template is="stars1" data="{{movieDetails}}" />
     </view>
     <view class="m_director m_module">
       <text class="m_aside">导演</text>
@@ -132,7 +161,7 @@
       </text>
     </view>
     <view class="m_actor m_module">
-      <text class="m_aside">影人</text>
+      <text class="m_aside">演员</text>
       <text>
         <block wx:for="{{movieDetails.casts}}" wx:for-index="index">{{item.name}}{{index<movieDetails.casts.length-1? ' / ': ''}}</block>
       </text>
@@ -154,8 +183,25 @@
     <view class="m_filmmaker m_module">
       <view class="m_body_title">影人</view>
       <scroll-view scroll-x="true" scroll-left="20">
-        <image wx:for="{{movieDetails.casts}}" src="{{item.avatars.small}}"></image>
+        <view wx:for="{{movieDetails.casts}}">
+          <image src="{{item.avatars.small}}"></image>
+          <text>{{item.name}}</text>
+        </view>
       </scroll-view>
+    </view>
+
+    <view class="m_photos m_module">
+      <view class="m_body_title">剧照</view>
+      <scroll-view scroll-x="true" scroll-left="20">
+        <image wx:for="{{movieDetails.photos}}" src="{{item.cover}}"></image>
+      </scroll-view>
+    </view>
+
+    <view class="m_comments m_module">
+      <view class="m_body_title">热评</view>
+      <block wx:for="{{movieDetails.popular_comments}}" wx:for-item="item">
+        <template is="comment-movies" data="{{item}}" />
+      </block>
     </view>
   </view>
 </template>

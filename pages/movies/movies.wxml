@@ -1,8 +1,26 @@
 <import src="../../template/template.wxml" />
 
-<view class="search">
-  <image class="searchIcon" src="/images/icon/search.png"></image>
-  <input class="searchInput" type="text" placeholder="关键字" confirm-type="search" value="{{searchValue}}"></input>
+<view class="search-header">
+  <view class="search">
+    <image class="searchIcon" src="/images/icon/search.png"></image>
+    <input class="searchInput" bindfocus="bindfocus" bindblur="bindblur" bindinput="searchMovies" type="text" placeholder="关键字" animation="{{animationInput}}" confirm-type="search" value="{{searchValue}}"></input>
+  </view>
+  <view class="search-filter" catchtap="onMoviesMore" data-type="2">
+    <text>筛选</text>
+  </view>
 </view>
 
-<template is="movie-start-list" data="{{moviesList}}"/>
+<view class="search-mask" animation="{{animationData}}" wx:if="{{isSearchMode}}">
+  <block wx:if="{{searchResult.length}}">
+    <view class="search-item" wx:for="{{searchResult}}" catchtap="onMovieDetail" data-id="{{item.id}}">
+      {{item.title}}
+    </view>
+  </block>
+  <block wx:else>
+    <view class="search-none">
+      无结果
+    </view>
+  </block>
+</view>
+
+<template is="movie-start-list" data="{{moviesList}}" />
