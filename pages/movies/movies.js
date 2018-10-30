@@ -15,7 +15,7 @@ Page({
   onLoad() {
     const that = this;
     wx.showLoading({
-      title: '正在加载...',
+      title: app.global.tipTitle,
       success() {
         that.getNowShowing()
         that.getTopShowing()
@@ -34,7 +34,7 @@ Page({
       start: 0,
       count: 5
     }
-    app.getMovies(param).then(res => {
+    app.getAjax(param).then(res => {
       that.setData({
         [c]: res.subjects
       })
@@ -50,7 +50,7 @@ Page({
       count: 5
     }
 
-    app.getMovies(param).then(res => {
+    app.getAjax(param).then(res => {
       that.setData({
         [c]: res.subjects
       })
@@ -85,12 +85,9 @@ Page({
     wx.showLoading({
       title: '正在搜索...',
       success() {
-        app.getMovies(param).then(res => {
-          that.animation.currentTransform = [];
-          that.animation.height('100%').step()
+        app.getAjax(param).then(res => {
           that.setData({
             searchResult: res.subjects,
-            animationData: that.animation.export()
           })
           wx.hideLoading()
         })
@@ -99,13 +96,19 @@ Page({
   },
   bindfocus() {
     this.animation.currentTransform = [];
-    this.animation.width('420rpx').step()
+    this.animation.width('320rpx').step()
     this.setData({
       isSearchMode: true,
       animationInput: this.animation.export()
     })
+
+    this.animation.currentTransform = [];
+    this.animation.translateY(0).opacity(1).step()
+    this.setData({
+      animationData: this.animation.export()
+    })
   },
-  bindblur() {
+  closeSearchInput() {
     this.animation.currentTransform = [];
     this.animation.width('100rpx').step()
     this.setData({
@@ -116,12 +119,9 @@ Page({
     })
 
     this.animation.currentTransform = [];
-    this.animation.height('0').step()
+    this.animation.translateY('50rpx').opacity(0).step()
     this.setData({
       animationData: this.animation.export()
     })
-  },
-  onShowTags(){
-
   }
 })

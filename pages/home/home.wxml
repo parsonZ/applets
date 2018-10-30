@@ -1,2 +1,56 @@
-<!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<view class="container">
+  <view class="banner">
+    <swiper autoplay circular indicator-dots indicator-color="#000" indicator-active-color="#fff">
+      <swiper-item wx:for="{{banners}}">
+        <image src="{{item.screenshot}}" class="swiper-image"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="tab-list">
+    <text style="color: {{index == 1? '#007fff': '#000'}}; border-bottom: {{index == 1? 4: 0}}rpx solid #007fff;" data-index="1" catchtap="tabSwitch">推荐</text>
+    |
+    <text style="color: {{index == 2? '#007fff': '#000'}}; border-bottom: {{index == 2? 4: 0}}rpx solid #007fff;" data-index="2" catchtap="tabSwitch">动态</text>
+  </view>
+  <view class="list-content" wx:if="{{index == 1}}">
+    <view class="list-item" wx:for="{{lists}}" catchtap="onDetails">
+      <view class="meta-list">
+        <view class="user-img-wrap">
+          <image class="user-img" src="{{item.user.avatarLarge }}"></image>
+        </view>
+        <view class="user-wrap">
+          <view style="color: #000;">{{item.user.username}}</view>
+          <view style="font-weight:bold;">
+            {{item.user.jobTitle}}@{{item.user.company}} - {{item.createdAt}}
+          </view>
+        </view>
+      </view>
+      <view class="title-list">
+        {{item.content}}
+        <view wx:if="{{item.pictures.length}}" class="include-img">
+          <image src="" wx:for="{{item.pictures}}" style="width: {{375/item.pictures.length}}rpx;" wx:for-item="images" src="{{images}}" data-urls="{{item.pictures}}" catchtap="previewImg"></image>
+        </view>
+        <view class="topic" wx:if="{{item.topic != null}}">
+          <text>{{item.topic.title}}</text>
+        </view>
+      </view>
+      <view class="action-list">
+        <view>
+          <image src="/images/icon/zan.png"></image>{{item.likedCount}}
+        </view>
+        |
+        <view>
+          <image src="/images/icon/pinglun.png" style="width: 26rpx;height: 28rpx;"></image>评论
+        </view>
+        |
+        <view>
+          <image src="/images/icon/fenxiang.png"></image>分享
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="dynamic-content" wx:if="{{index == 2}}">
+    <image src="/images/icon/xiaolian.png"></image>
+    <view>暂时还没有动态哦</view>
+  </view>
+</view>

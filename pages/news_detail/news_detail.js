@@ -1,7 +1,7 @@
 import {
   local_database as local_posts_data
 } from '../../data/posts-data.js'
-
+const app = getApp();
 Page({
   data: {
     post_content: local_posts_data,
@@ -19,7 +19,7 @@ Page({
     })
 
     wx.showLoading({
-      title: '正在加载...',
+      title: app.global.tipTitle,
       success: res => {
         this.setData({
           details: details
@@ -89,7 +89,7 @@ Page({
     const animation = wx.createAnimation()
     if (!_this.showComment) {
       wx.showLoading({
-        title: '正在加载评论...',
+        title: app.global.tipTitle,
         mask: true
       })
 

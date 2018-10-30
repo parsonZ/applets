@@ -16,7 +16,7 @@ Page({
   },
   start() {
     wx.switchTab({
-      url: '/pages/news_list/news_list'
+      url: '/pages/home/home'
     })
   }
 })

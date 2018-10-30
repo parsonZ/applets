@@ -130,6 +130,7 @@
   <view style="overflow: hidden;">
     <view class="m_header m_module" style="background: url('{{movieDetails.images.medium}}') 0 0 no-repeat;background-size:100% 100%;">
     </view>
+    <image class="play-image" src="/images/music/music-start.png" catchtap="playMovies"></image>
     <view class="m_header" style="filter:none;position:absolute;top:0;left:0;width: 100%;">
       <view class="m_title">
         {{movieDetails.title}}

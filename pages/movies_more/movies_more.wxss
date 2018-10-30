@@ -18,7 +18,7 @@ page {
 
 .filter-tag {
   line-height: 50rpx;
-  font-size: 28rpx;
+  font-size: 26rpx;
   padding:40rpx 20rpx;
   transform: translateY(-100%);
   background: #f1f1f1;

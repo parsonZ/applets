@@ -3,7 +3,10 @@
 <view class="search-header">
   <view class="search">
     <image class="searchIcon" src="/images/icon/search.png"></image>
-    <input class="searchInput" bindfocus="bindfocus" bindblur="bindblur" bindinput="searchMovies" type="text" placeholder="关键字" animation="{{animationInput}}" confirm-type="search" value="{{searchValue}}"></input>
+    <input class="searchInput" bindfocus="bindfocus" bindinput="searchMovies" type="text" placeholder="关键字" animation="{{animationInput}}" confirm-type="search" value="{{searchValue}}"></input>
+    <view catchtap="closeSearchInput" style="position: absolute;right: 20rpx;" wx:if="{{isSearchMode}}">
+      取消
+    </view>
   </view>
   <view class="search-filter" catchtap="onMoviesMore" data-type="2">
     <text>筛选</text>

@@ -6,7 +6,7 @@ page{
 
 .swiper-container{
   width: 750rpx;
-  height: 550rpx;
+  height: 400rpx;
 }
 
 .swiper-container image{

@@ -1,5 +1,5 @@
 <import src="../../template/template.wxml" />
-<swiper class="swiper-container" indicator-dots autoplay circular>
+<swiper class="swiper-container" indicator-dots autoplay circular indicator-color="#000" indicator-active-color="#fff">
   <block wx:for="{{posts}}">
     <swiper-item>
       <image src="{{item}}"></image>

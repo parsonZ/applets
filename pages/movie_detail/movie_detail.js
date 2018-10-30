@@ -7,7 +7,7 @@ Page({
   onLoad(option) {
     const that = this;
     wx.showLoading({
-      title: '正在加载...',
+      title: app.global.tipTitle,
       success() {
         that.getMovieDetails(option.id)
       }
@@ -15,22 +15,19 @@ Page({
   },
   getMovieDetails(id) {
     const that = this
-    const promise = new Promise((resolve, reject) => {
-        wx.request({
-          url: app.global.api.getDetails + id,
-          header: {
-            'content-type': 'application/xml'
-          },
-          success(res) {
-            resolve(res.data)
-          }
-        })
+    let param = {
+      url: app.global.api.getDetails + id
+    }
+    app.getAjax(param).then(res => {
+      that.setData({
+        movieDetails: res
       })
-      .then(res => {
-        that.setData({
-          movieDetails: res
-        })
-        wx.hideLoading()
-      }).catch(err => console.log(err))
+      wx.hideLoading()
+    })
+  },
+  playMovies(){
+    wx.navigateTo({
+      url: '/pages/playMovie/playMovie?id=' + this.data.movieDetails.id,
+    })
   }
 })

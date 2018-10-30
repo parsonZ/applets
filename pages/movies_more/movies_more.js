@@ -48,9 +48,9 @@ Page({
       count: that.data.count
     }
     wx.showLoading({
-      title: '正在加载...',
+      title: app.global.tipTitle,
       success() {
-        app.getMovies(param).then(res => {
+        app.getAjax(param).then(res => {
           let arr = that.data.movies
           arr.push(...res.subjects)
           that.setData({
@@ -75,9 +75,9 @@ Page({
       count: that.data.count
     }
     wx.showLoading({
-      title: '正在加载...',
+      title: app.global.tipTitle,
       success() {
-        app.getMovies(param).then(res => {
+        app.getAjax(param).then(res => {
           let arr = that.data.movies
           arr.push(...res.subjects)
           that.setData({
@@ -103,7 +103,10 @@ Page({
       })
       this.setData({
         tagsArr: this.data.tagsArr,
-        tags: arr
+        tags: arr,
+        start: 0,
+        movies: [],
+        isMore: true
       })
     }
 
@@ -114,13 +117,13 @@ Page({
       start: this.data.start
     };
     wx.showLoading({
-      title: '正在加载...',
+      title: app.global.tipTitle,
       success: () => {
-        app.getMovies(param).then(res => {
+        app.getAjax(param).then(res => {
           let arr = this.data.movies
           arr.push(...res.data)
           this.setData({
-            movies: !this.isScroll || !this.data.tags.length ? res.data : arr
+            movies: !this.isScroll ? res.data : arr
           })
 
           if (res.data.length < 20) {
@@ -137,7 +140,7 @@ Page({
     let param = {
       url: app.global.api.getTags
     }
-    app.getMovies(param).then(res => {
+    app.getAjax(param).then(res => {
       let arr = [];
       for (let [index, item] of res.tags.entries()) {
         arr.push({

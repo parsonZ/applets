@@ -107,6 +107,7 @@
 
 .mb50 {
   margin-bottom: 50rpx;
+  margin-top: 100rpx;
 }
 
 .movie-list-title {
@@ -198,6 +199,16 @@
   -webkit-filter: blur(10rpx);
 }
 
+.play-image {
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  top: 100rpx;
+  z-index: 11;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .image-hover {
   width: 180rpx;
   height: 240rpx;
@@ -241,7 +252,7 @@
 
 .m_body {
   font-size: 28rpx;
-  line-height:52rpx;
+  line-height: 52rpx;
 }
 
 .m_body .m_aside {
@@ -249,10 +260,12 @@
   margin-right: 20rpx;
   white-space: nowrap;
 }
-.m_rate{
+
+.m_rate {
   display: flex;
   align-items: center;
 }
+
 .m_body .m_description {
   display: block;
   padding: 50rpx 40rpx;
@@ -313,9 +326,11 @@
   height: 300rpx;
   margin: 20rpx;
 }
+
 .m_comments {
-  margin:20rpx 0;
+  margin: 20rpx 0;
 }
-.m_comments, .m_comments .comment-item{
+
+.m_comments, .m_comments .comment-item {
   display: block !important;
 }

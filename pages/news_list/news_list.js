@@ -12,7 +12,7 @@ Page({
   },
   onLoad(){
     wx.showLoading({
-      title: '正在加载...',
+      title: app.global.tipTitle,
       success: res => {
         this.setData({
           userInfo: app.global.userInfo,

@@ -1,6 +1,5 @@
 {
   "navigationBarBackgroundColor": "#405f80",
   "navigationBarTextStyle": "#fff",
-  "navigationBarTitleText": "新闻中心",
-  "enablePullDownRefresh": true
+  "navigationBarTitleText": "播放器"
 }

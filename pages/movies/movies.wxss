@@ -9,7 +9,11 @@ page {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20rpx;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background: #f1f1f1;
 }
 
 .search-filter {
@@ -18,42 +22,49 @@ page {
   padding: 0 60rpx;
   background: #fff;
   border-radius: 30rpx;
+  margin-right: 20rpx;
 }
 
 .search {
   display: flex;
   align-items: center;
   height: 100rpx;
+  margin-left: 20rpx;
+  position: relative;
 }
 
 .searchIcon {
   width: 25rpx;
   height: 25rpx;
   position: absolute;
-  left: 40rpx;
+  left: 25rpx;
 }
 
 .searchInput {
   height: 60rpx;
   line-height: 60rpx;
   padding-left: 60rpx;
-  padding-right: 20rpx;
+  padding-right: 90rpx;
   width: 100rpx;
   background: #fff;
   border-radius: 40rpx;
 }
-.search-none{
+
+.search-none {
   font-size: 26rpx;
   text-align: center;
   padding: 20rpx;
 }
+
 .search-mask {
   position: absolute;
-  height: 0;
+  height: calc(100% - 100rpx);
   width: 100%;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 1);
   z-index: 1;
-  overflow: hidden;
+  opacity: 0;
+  overflow: auto;
+  transform: translateY(50rpx);
 }
 
 .search-item {
