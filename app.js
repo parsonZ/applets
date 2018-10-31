@@ -10,10 +10,10 @@ App({
     userInfo: null,
     newList: local_database,
     api: api,
-    tipTitle: '正在加载...'
+    tipTitle: '正在加载...',
   },
   onLaunch() {
-
+    
   },
   getAjax(param) {
     let data = {};
@@ -64,5 +64,14 @@ App({
       console.log(err)
     })
     return promise
-  }
+  },
+  setSession(key, value){
+    wx.setStorage({
+      key: key,
+      data: value
+    })
+  },
+  getSession(key){
+    return wx.getStorageSync(key);
+  },
 })
