@@ -1,4 +1,5 @@
 page{
-  font-family: '宋体';
   color: #666;
+  height: 100%;
+  font-size:34rpx;
 }

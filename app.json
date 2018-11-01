@@ -8,7 +8,8 @@
     "pages/news_detail/news_detail",
     "pages/movies_more/movies_more",
     "pages/movie_detail/movie_detail",
-    "pages/playMovie/playMovie"
+    "pages/playMovie/playMovie",
+    "pages/home_detail/home_detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

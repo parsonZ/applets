@@ -1,6 +1,5 @@
 {
   "navigationBarBackgroundColor": "#405f80",
   "navigationBarTextStyle": "#fff",
-  "navigationBarTitleText": "沸点中心",
-  "enablePullDownRefresh": true
+  "navigationBarTitleText": "沸点详情"
 }

@@ -7,11 +7,28 @@ Page({
     limit: 5,
     index: 1,
     before: '',
-    session: null
+    session: null,
+    defaultImg: app.global.defaultImg.base64
   },
   onLoad() {
     this.getBanner()
     this.getRecommand()
+  },
+  onShow() {
+    //获取一遍session
+    const session = app.getSession('objectIds');
+    this.data.lists.map((item, index) => {
+      if (this.currentObjid == item.objectId){
+        let s = 'lists[' + index + '].likedCount',
+            c = 'lists[' + index + '].isLiked',
+            v = 'lists[' + index +'].showComments';
+        this.setData({
+          [s]: session[item.objectId].like,
+          [c]: session[item.objectId].isLiked,
+          [v]: false
+        })
+      }
+    })
   },
   getBanner() {
     let param = {
@@ -43,16 +60,19 @@ Page({
         app.getAjax(param).then(res => {
           this.saveStorage(res.d.list)
           res.d.list.map(item => {
-            const times = Math.floor((new Date().getTime() - new Date(item.createdAt).getTime()) / 1000 / 60); //分钟
-            let str = '';
-            if (times / 60 / 24 > 1) {
-              str = Math.ceil(times / 60 / 24) + '天前'
-            } else if (times / 60 > 1) {
-              str = Math.ceil(times / 60) + '小时前'
-            } else {
-              str = times + '分钟前'
-            }
-            item['createdAt1'] = str;
+            //格式化日期
+            item['createdAt1'] = app.dateFormat(item.createdAt);
+            
+            item.pictures.map(item1 => {
+              app.getUrlParams('w', item1)
+            })
+            
+            //辅助评论功能
+            item['showComments'] = false
+            item['comments'] = []
+            item['count'] = 0
+
+            //获取session合并至列表
             item.likedCount = this.data.session[item.objectId].like
             item.isLiked = this.data.session[item.objectId].isLiked
             this.data.lists.push(item)
@@ -144,6 +164,68 @@ Page({
         this.setData({
           [s]: item.isLiked ? item.likedCount - 1 : item.likedCount + 1,
           [c]: !item.isLiked
+        })
+      }
+    })
+  },
+  command(e){
+    const objid = e.currentTarget.dataset.objid;
+    const session = this.data.session;
+
+    let param = {
+      url: app.global.api.getComment + objid,
+      pageNum: 1,
+      pageSize: 5
+    }
+
+    wx.showLoading({
+      title: app.global.tipTitle,
+      mask: true,
+      success: () => {
+        app.getAjax(param)
+        .then(res => {
+          
+          res.d.comments.map(item => {
+            item.createdAt = app.dateFormat(item.createdAt)
+            if (item.topComment && item.topComment.length) {
+              item.topComment.map(item1 => {
+                item1.createdAt = app.dateFormat(item1.createdAt)
+                return item1
+              })
+            }
+            return item;
+          })
+
+          this.data.lists.map((item, index) => {
+
+            if (item.objectId == objid) {
+              let s = 'lists[' + index + '].showComments'
+              let c = 'lists[' + index + '].comments'
+              let v = 'lists[' + index + '].count'
+              this.setData({
+                [s]: !item.showComments,
+                [c]: res.d.comments,
+                [v]: res.d.count
+              })
+            }
+
+            return item;
+          })
+          wx.hideLoading()
+        })
+      }
+    })
+  },
+  ondetails(e){
+    const objid = e.currentTarget.dataset.objid;
+    this.currentObjid = objid;
+    wx.navigateTo({
+      url: '/pages/home_detail/home_detail?objid=' + objid, 
+      success: () => {
+        this.data.lists.map(item => {
+          if(item.objectId == objid) {
+            app.global['home_detail'] = item
+          }
         })
       }
     })

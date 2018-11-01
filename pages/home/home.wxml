@@ -1,61 +1,27 @@
+<import src="../../template/template.wxml" />
+
 <scroll-view enable-back-to-top="true" scroll-y height="100%">
-<view class="container">
-  <view class="banner">
-    <swiper autoplay circular indicator-dots indicator-color="#000" indicator-active-color="#fff">
-      <swiper-item wx:for="{{banners}}">
-        <image src="{{item.screenshot}}" class="swiper-image"></image>
-      </swiper-item>
-    </swiper>
-  </view>
-  <view class="tab-list">
-    <text style="color: {{index == 1? '#007fff': '#000'}}; border-bottom: {{index == 1? 4: 0}}rpx solid #007fff;" data-index="1" catchtap="tabSwitch">推荐</text>
-    |
-    <text style="color: {{index == 2? '#007fff': '#000'}}; border-bottom: {{index == 2? 4: 0}}rpx solid #007fff;" data-index="2" catchtap="tabSwitch">动态</text>
-  </view>
-  <view class="list-content" wx:if="{{index == 1}}">
-    <view class="list-item" wx:for="{{lists}}">
-      <view class="meta-list">
-        <view class="user-img-wrap">
-          <image class="user-img" src="{{item.user.avatarLarge }}"></image>
-        </view>
-        <view class="user-wrap">
-          <view style="color: #000;">{{item.user.username}}</view>
-          <view style="font-weight:bold;">
-            {{item.user.jobTitle}}@{{item.user.company}} - {{item.createdAt1}}
-          </view>
-        </view>
-        <view style="position: absolute;right:28rpx;margin-top:-20rpx;">
-          <image src="/images/icon/circle.png" style="width:40rpx;height: 40rpx;"></image>
-        </view>
-      </view>
-      <view class="title-list">
-        {{item.content}}
-        <view wx:if="{{item.pictures.length}}" class="include-img">
-          <image src="" wx:for="{{item.pictures}}" style="width: {{375/item.pictures.length}}rpx;" wx:for-item="images" src="{{images}}" data-urls="{{item.pictures}}" catchtap="previewImg"></image>
-        </view>
-        <view class="topic" style="margin: 20rpx 0;" wx:if="{{item.topic != null}}">
-          <text>{{item.topic.title}}</text>
-        </view>
-      </view>
-      <view class="action-list">
-        <view bindtap='like' data-objid="{{item.objectId}}">
-          <image src="{{item.isLiked?'/images/icon/zan-hover.png':'/images/icon/zan.png'}}"></image>{{item.likedCount}}
-        </view>
-        |
-        <view>
-          <image src="/images/icon/pinglun.png" style="width: 26rpx;height: 28rpx;"></image>评论
-        </view>
-        |
-        <view>
-          <image src="/images/icon/fenxiang.png"></image>分享
-        </view>
+  <view class="container">
+    <view class="banner">
+      <swiper autoplay circular indicator-dots indicator-color="#000" indicator-active-color="#fff">
+        <swiper-item wx:for="{{banners}}">
+          <image src="{{item.screenshot}}" class="swiper-image"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class="tab-list">
+        <text style="color: {{index == 1? '#007fff': '#000'}}; border-bottom: {{index == 1? 4: 0}}rpx solid #007fff;" data-index="1" catchtap="tabSwitch">推荐</text> 
+      |
+        <text style="color: {{index == 2? '#007fff': '#000'}}; border-bottom: {{index == 2? 4: 0}}rpx solid #007fff;" data-index="2" catchtap="tabSwitch">动态</text>
+    </view>
+    <view class="list-content" wx:if="{{index == 1}}">
+      <view class="list-item" wx:for="{{lists}}" wx:key="*this">
+        <template is="lists-item" data="{{item, defaultImg}}" />
       </view>
     </view>
+    <view class="dynamic-content" wx:if="{{index == 2}}">
+      <image src="/images/icon/xiaolian.png"></image>
+      <view>暂时还没有动态哦</view>
+    </view>
   </view>
-
-  <view class="dynamic-content" wx:if="{{index == 2}}">
-    <image src="/images/icon/xiaolian.png"></image>
-    <view>暂时还没有动态哦</view>
-  </view>
-</view>
 </scroll-view>

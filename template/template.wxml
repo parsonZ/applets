@@ -206,3 +206,92 @@
     </view>
   </view>
 </template>
+
+<!--掘金列表区-->
+<template name="lists-item">
+  <view class="meta-list">
+    <view class="user-img-wrap">
+      <image class="user-img" src="{{item.user.avatarLarge }}"></image>
+    </view>
+    <view class="user-wrap">
+      <view style="color: #000;">{{item.user.username}}</view>
+      <view style="font-weight:bold;">
+        {{item.user.jobTitle}}@{{item.user.company}} - {{item.createdAt1}}
+      </view>
+    </view>
+    <view style="position: absolute;right:28rpx;margin-top:-20rpx;">
+      <image src="/images/icon/circle.png" style="width:40rpx;height: 40rpx;"></image>
+    </view>
+  </view>
+  <view class="title-list">
+    {{item.content}}
+    <view wx:if="{{item.pictures.length}}" class="include-img">
+      <image src="" wx:for="{{item.pictures}}" style="width: {{375/item.pictures.length}}rpx;" wx:for-item="images" src="{{images}}" data-urls="{{item.pictures}}" catchtap="previewImg"></image>
+    </view>
+    <view class="topic" style="margin: 20rpx 0;" wx:if="{{item.topic != null}}">
+      <text>{{item.topic.title}}</text>
+    </view>
+  </view>
+  <view class="action-list">
+    <view bindtap='like' data-objid="{{item.objectId}}">
+      <image src="{{item.isLiked?'/images/icon/zan-hover.png':'/images/icon/zan.png'}}"></image>{{item.likedCount}}
+    </view>
+    <view>|</view>
+    <view bindtap='command' data-objid="{{item.objectId}}" data-uid="{{item.uid}}">
+      <image src="/images/icon/pinglun.png" style="width: 26rpx;height: 28rpx;"></image>
+      <text wx:if="{{item.commentCount}}">{{item.commentCount}}</text>
+      <text wx:else>评论</text>
+    </view>
+    <view>|</view>
+    <view>
+      <image src="/images/icon/fenxiang.png"></image>分享
+    </view>
+  </view>
+  <template is="juejin-comments" data="{{item, defaultImg, notShowMore}}" />
+</template>
+
+<!--掘金评论区-->
+<template name="juejin-comments">
+  <view class="commend-content" wx:if="{{item.showComments}}">
+    <view class="input-wrap">
+      <image src="{{defaultImg}}"></image>
+      <input class="comments-input" placeholder="发表你的意见"></input>
+    </view>
+    <block wx:if="{{item.comments.length}}">
+      <view class="comments-item" wx:for="{{item.comments}}" wx:for-item="commentsItem" wx:key="*this" wx:for-index="idx" style="border-bottom: {{idx == item.comments.length-1?0:2}}rpx solid #ddd;">
+        <view class="comments-header">
+          <image class="user-comments-img" src="{{commentsItem.userInfo.avatarLarge == '' ? defaultImg:commentsItem.userInfo.avatarLarge}}"></image>
+          <text style="color: #000;">{{commentsItem.userInfo.username}}</text>
+          <text>{{commentsItem.userInfo.jobTitle}}</text>
+          <text>@</text>
+          <text>{{commentsItem.userInfo.company}}</text>
+        </view>
+        <view class="comments-content">{{commentsItem.content}}</view>
+        <view class="comments-footer">
+          {{commentsItem.createdAt}}
+        </view>
+        <view class="top-comments">
+          <view class="top-comments-item" wx:for="{{commentsItem.topComment}}" wx:for-item="topItem">
+            <view class="comments-header">
+              <image class="user-comments-img" src="{{topItem.userInfo.avatarLarge == '' ? defaultImg:topItem.userInfo.avatarLarge}}"></image>
+              <text style="color: #000;">{{topItem.userInfo.username}}</text>
+              <text>{{topItem.userInfo.jobTitle}}</text>
+              <text>@</text>
+              <text>{{topItem.userInfo.company}}</text>
+            </view>
+            <view class="comments-content">{{topItem.content}}</view>
+            <view class="comments-footer">
+              {{topItem.createdAt}}
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="comments-more" wx:if="{{item.count >= 5 && !notShowMore}}" catchtap="ondetails" data-objid="{{item.objectId}}">
+        查看更多>
+      </view>
+    </block>
+    <view wx:if="{{!item.comments.length}}" style="color:#8a9aa9;padding: 20rpx;text-align:center;">
+      快来抢沙发吧!
+    </view>
+  </view>
+</template>

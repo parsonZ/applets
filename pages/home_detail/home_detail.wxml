@@ -1,0 +1,8 @@
+<import src="../../template/template.wxml" />
+
+<view class="list-item">
+  <template is="lists-item" data="{{item, defaultImg, notShowMore}}" />
+</view>
+<view wx:if="{{!isMore}}" style="font-size:30rpx;padding-bottom:11px;text-align:center;">
+  人家是有底线的
+</view>

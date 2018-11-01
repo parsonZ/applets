@@ -15,7 +15,9 @@ const api = {
   //page, pageSize
   getBanner: 'https://banner-storage-ms.juejin.im/v1/web/page/aanner?position=topic-banner&platform=web&page=0&pageSize=20&src=web',
   //列表 param: limit,before
-  getRecommand: 'https://short-msg-ms.juejin.im/v1/pinList/recommend?src=web'
+  getRecommand: 'https://short-msg-ms.juejin.im/v1/pinList/recommend?src=web',
+  //获取评论 param: pageNum=1, pageSize=7 拼接objectId 5bda5230092dcb7eb99bf918
+  getComment: 'https://hot-topic-comment-wrapper-ms.juejin.im/v1/comments/'
 }
 
 export {

@@ -334,3 +334,211 @@
 .m_comments, .m_comments .comment-item {
   display: block !important;
 }
+
+/*掘金列表区*/
+
+.list-item {
+  padding: 20rpx 0rpx;
+  background: #fff;
+  margin: 20rpx 0;
+  padding-bottom: 0;
+}
+
+.meta-list {
+  color: #909090;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+}
+
+
+.action-list {
+  color: #909090;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  border-top: 2rpx solid #ddd;
+  border-bottom: 2rpx solid #ddd;
+  justify-content: space-around;
+}
+
+
+.meta-list .user-img-wrap {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  padding: 4rpx;
+}
+
+.meta-list .user-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.meta-list .user-wrap {
+  line-height: 40rpx;
+  padding-left: 20rpx;
+}
+
+.title-list {
+  padding: 20rpx 30rpx 20rpx 110rpx;
+  line-height: 50rpx;
+  font-size: 30rpx;
+  overflow: hidden;
+  border-top: 2rpx solid #ddd;
+  margin-top: 20rpx;
+  color: #666;
+}
+
+.include-img {
+  padding: 20rpx;
+}
+
+.title-list image {
+  min-width: 140rpx;
+  height: 200rpx;
+  margin-right: 20rpx;
+}
+
+.topic text {
+  display: inline-block;
+  border: 1px solid #007fff;
+  color: #007fff;
+  border-radius: 100rpx;
+  padding: 0 50rpx;
+  font-size: 24rpx;
+}
+
+.action-list view {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  padding: 15rpx;
+}
+
+.action-list image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
+}
+
+.dynamic-content {
+  background: #fff;
+  margin-top: 20rpx;
+  text-align: center;
+  padding: 50rpx;
+  font-size: 30rpx;
+}
+
+.dynamic-content image {
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 20rpx;
+}
+
+/*掘金评论区*/
+
+.commend-content {
+  position: relative;
+  font-size: 28rpx;
+  padding-top: 30rpx;
+}
+
+.commend-content::before {
+  width: 20rpx;
+  height: 20rpx;
+  transform: rotate(45deg) translateX(-50%);
+  background: #fff;
+  border: 2rpx solid #ddd;
+  border-right: none;
+  border-bottom: none;
+  position: absolute;
+  content: '';
+  top: -4rpx;
+  left: 50%;
+}
+
+.commend-content .comments-item {
+  border-bottom: 2rpx solid #ddd;
+  margin-top: 20rpx;
+  margin-left: 70rpx;
+  padding-bottom: 10rpx;
+}
+
+.commend-content .comments-header {
+  display: flex;
+  align-items: top;
+}
+
+.commend-content .comments-header text {
+  color: #8a9aa9;
+  margin: 0 5rpx;
+  font-size: 26rpx;
+}
+
+.commend-content .user-comments-img {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.commend-content .comments-content {
+  padding: 10rpx 60rpx;
+}
+
+.commend-content .comments-footer {
+  padding: 10rpx 60rpx;
+  color: #8a9aa9;
+}
+
+.input-wrap {
+  background: #fafbfc;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100rpx;
+  padding: 10rpx 20rpx;
+  margin: 0 20rpx;
+}
+
+.input-wrap image {
+  width: 56rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.input-wrap input {
+  width: 100%;
+  border: 2rpx solid #ddd;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+  padding: 10rpx;
+  background: #fff;
+}
+
+.comments-more {
+  padding: 20rpx;
+  text-align: center;
+  color: #007fff;
+  border-top: 2rpx solid #ddd;
+}
+
+.top-comments {
+  background: #fafbfc;
+}
+
+.top-comments .top-comments-item {
+  padding: 20rpx 30rpx 10rpx 50rpx;
+  border-bottom: 2rpx solid #ddd;
+}
+
+.top-comments .top-comments-item:last-child {
+  border-bottom: none;
+}
