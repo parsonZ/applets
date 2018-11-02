@@ -75,5 +75,12 @@ Page({
       [s]: this.data.item.isLiked ? this.data.item.likedCount - 1 : this.data.item.likedCount + 1,
       [c]: !this.data.item.isLiked
     })
+  },
+  previewImg(e) {
+    const urls = e.currentTarget.dataset.urls;
+    wx.previewImage({
+      current: urls[0],
+      urls: urls
+    })
   }
 })

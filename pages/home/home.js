@@ -8,7 +8,8 @@ Page({
     index: 1,
     before: '',
     session: null,
-    defaultImg: app.global.defaultImg.base64
+    defaultImg: app.global.defaultImg.base64,
+    inputValue: ''
   },
   onLoad() {
     this.getBanner()
@@ -18,10 +19,10 @@ Page({
     //获取一遍session
     const session = app.getSession('objectIds');
     this.data.lists.map((item, index) => {
-      if (this.currentObjid == item.objectId){
+      if (this.currentObjid == item.objectId) {
         let s = 'lists[' + index + '].likedCount',
-            c = 'lists[' + index + '].isLiked',
-            v = 'lists[' + index +'].showComments';
+          c = 'lists[' + index + '].isLiked',
+          v = 'lists[' + index + '].showComments';
         this.setData({
           [s]: session[item.objectId].like,
           [c]: session[item.objectId].isLiked,
@@ -52,7 +53,7 @@ Page({
       before: this.data.before
     }
     let session = this.data.session;
-    
+
     wx.showLoading({
       title: app.global.tipTitle,
       mask: true,
@@ -165,7 +166,7 @@ Page({
       }
     })
   },
-  command(e){
+  command(e) {
     const objid = e.currentTarget.dataset.objid;
     const session = this.data.session;
 
@@ -180,50 +181,86 @@ Page({
       mask: true,
       success: () => {
         app.getAjax(param)
-        .then(res => {
-          
-          res.d.comments.map(item => {
-            item.createdAt = app.dateFormat(item.createdAt)
-            if (item.topComment && item.topComment.length) {
-              item.topComment.map(item1 => {
-                item1.createdAt = app.dateFormat(item1.createdAt)
-                return item1
-              })
-            }
-            return item;
+          .then(res => {
+
+            res.d.comments.map(item => {
+              item.createdAt = app.dateFormat(item.createdAt)
+              if (item.topComment && item.topComment.length) {
+                item.topComment.map(item1 => {
+                  item1.createdAt = app.dateFormat(item1.createdAt)
+                  return item1
+                })
+              }
+              return item;
+            })
+
+            this.data.lists.map((item, index) => {
+
+              if (item.objectId == objid) {
+                let s = 'lists[' + index + '].showComments'
+                let c = 'lists[' + index + '].comments'
+                let v = 'lists[' + index + '].count'
+                this.setData({
+                  [s]: !item.showComments,
+                  [c]: res.d.comments,
+                  [v]: res.d.count
+                })
+              }
+
+              return item;
+            })
+            wx.hideLoading()
           })
-
-          this.data.lists.map((item, index) => {
-
-            if (item.objectId == objid) {
-              let s = 'lists[' + index + '].showComments'
-              let c = 'lists[' + index + '].comments'
-              let v = 'lists[' + index + '].count'
-              this.setData({
-                [s]: !item.showComments,
-                [c]: res.d.comments,
-                [v]: res.d.count
-              })
-            }
-
-            return item;
-          })
-          wx.hideLoading()
+      }
+    })
+  },
+  ondetails(e) {
+    const objid = e.currentTarget.dataset.objid;
+    this.currentObjid = objid;
+    wx.navigateTo({
+      url: '/pages/home_detail/home_detail?objid=' + objid,
+      success: () => {
+        this.data.lists.map(item => {
+          if (item.objectId == objid) {
+            app.global['home_detail'] = item
+          }
         })
       }
     })
   },
-  ondetails(e){
+  bindblur(e) {
+    this.setData({
+      inputValue: e.detail.value
+    })
+  },
+  onComments(e) {
     const objid = e.currentTarget.dataset.objid;
-    this.currentObjid = objid;
-    wx.navigateTo({
-      url: '/pages/home_detail/home_detail?objid=' + objid, 
-      success: () => {
-        this.data.lists.map(item => {
-          if(item.objectId == objid) {
-            app.global['home_detail'] = item
-          }
-        })
+    
+    wx.request({
+      url: 'https://hot-topic-comment-wrapper-ms.juejin.im/v1/comment',
+      method: 'post',
+      data: {
+        respUser: '595315e7f265da6c322dc6c6',
+        targetId: objid,
+        content: this.data.inputValue
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+        'X-Juejin-Src': 'web',
+        'X-Juejin-Uid': '585a4f4661ff4b006cc16ede',
+        'X-Juejin-Token': 'eyJhY2Nlc3NfdG9rZW4iOiI1b1c5ZlU2NlpvYlNSRWlxIiwicmVmcmVzaF90b2tlbiI6IjNYdFZSY3dLM2ozeEJMcFMiLCJ0b2tlbl90eXBlIjoibWFjIiwiZXhwaXJlX2luIjoyNTkyMDAwfQ==',
+        'X-Juejin-Client': 1541128897596
+      },
+      success(res) {
+        if (res.data.s == 1){
+          wx.showToast({
+            title: '评论成功',
+          })
+        }else {
+          wx.showToast({
+            title: '评论失败',
+          })
+        }
       }
     })
   }
