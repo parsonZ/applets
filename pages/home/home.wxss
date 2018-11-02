@@ -1,5 +1,6 @@
 /*导入评论区css*/
 @import '../../template/template.wxss';
+@import '../../components/miniprogram-slide-view/index.wxss';
 
 page {
   background: #f1f1f1;

@@ -209,6 +209,21 @@
 
 <!--掘金列表区-->
 <template name="lists-item">
+  <view class='slide'>
+    <slide-view width="750" height="110" slide-width="300">
+      <view slot="left" class="l">
+        <view class='text'>
+          <view class='title'>删除此条</view>
+        </view>
+      </view>
+      <view slot="right" class="r">
+        <view style="display: flex;">
+          <view class='read'>标为已读</view>
+          <view class='delete'>删除</view>
+        </view>
+      </view>
+    </slide-view>
+  </view>
   <view class="meta-list">
     <view class="user-img-wrap">
       <image class="user-img" src="{{item.user.avatarLarge }}"></image>
@@ -255,7 +270,7 @@
   <view class="commend-content" wx:if="{{item.showComments}}">
     <view class="input-wrap">
       <image src="{{defaultImg}}"></image>
-      <input class="comments-input"  placeholder="发表你的意见" bindblur="bindblur"></input>
+      <input class="comments-input" placeholder="发表你的意见" bindblur="bindblur"></input>
       <button size="mini" type="primary" bindtap="onComments" data-objid="{{item.objectId}}" data style="position: absolute;right: 20rpx;">评论</button>
     </view>
     <block wx:if="{{item.comments.length}}">
