@@ -94,15 +94,21 @@ App({
     return str;
   },
   //获取地址字符串中的参数
-  getUrlParams(key, url) {
-    let param = url.substr(url.indexOf('?') + 1, url.length - 1).split('&');
-
-    param.map(item => {
-      let start = item.split('=')[0], end = item.split('=')[1];
-      console.log({
-        'start': end
-      })
-      console.log(start)
-    })
+  getUrlParams(url, name) {
+    let pattern = new RegExp("[?&]" + name + "\=([^&]+)", "g");
+    let matcher = pattern.exec(url);
+    let items = null;
+    if (null != matcher) {
+      try {
+        items = decodeURIComponent(decodeURIComponent(matcher[1]));
+      } catch (e) {
+        try {
+          items = decodeURIComponent(matcher[1]);
+        } catch (e) {
+          items = matcher[1];
+        }
+      }
+    }
+    return items;  
   } 
 })

@@ -62,11 +62,7 @@ Page({
           res.d.list.map(item => {
             //格式化日期
             item['createdAt1'] = app.dateFormat(item.createdAt);
-            
-            item.pictures.map(item1 => {
-              app.getUrlParams('w', item1)
-            })
-            
+
             //辅助评论功能
             item['showComments'] = false
             item['comments'] = []
@@ -78,6 +74,7 @@ Page({
             this.data.lists.push(item)
             return item;
           })
+
           this.setData({
             lists: type == 'onPullDownRefresh' ? res.d.list : this.data.lists
           })

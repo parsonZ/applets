@@ -226,7 +226,7 @@
   <view class="title-list">
     {{item.content}}
     <view wx:if="{{item.pictures.length}}" class="include-img">
-      <image src="" wx:for="{{item.pictures}}" style="width: {{375/item.pictures.length}}rpx;" wx:for-item="images" src="{{images}}" data-urls="{{item.pictures}}" catchtap="previewImg"></image>
+      <image  wx:for="{{item.pictures}}" style="width: {{375/item.pictures.length}}rpx;" wx:for-item="images" style="width:200rpx;height: 200rpx;background: url({{images}}) center center repeat; background-size:cover;" data-urls="{{item.pictures}}" catchtap="previewImg"></image>
     </view>
     <view class="topic" style="margin: 20rpx 0;" wx:if="{{item.topic != null}}">
       <text>{{item.topic.title}}</text>
