@@ -217,7 +217,7 @@
         </view>
       </view>
       <view slot="right" class="r">
-        <view style="display: flex;">
+        <view style="display: flex;position: relative;">
           <view class='read'>标为已读</view>
           <view class='delete'>删除</view>
         </view>
