@@ -10,12 +10,26 @@
       </swiper>
     </view>
     <view class="tab-list">
-        <text style="color: {{index == 1? '#007fff': '#000'}}; border-bottom: {{index == 1? 4: 0}}rpx solid #007fff;" data-index="1" catchtap="tabSwitch">推荐</text> 
-      |
-        <text style="color: {{index == 2? '#007fff': '#000'}}; border-bottom: {{index == 2? 4: 0}}rpx solid #007fff;" data-index="2" catchtap="tabSwitch">动态</text>
+      <text style="color: {{index == 1? '#007fff': '#000'}}; border-bottom: {{index == 1? 4: 0}}rpx solid #007fff;" data-index="1" catchtap="tabSwitch">推荐</text> |
+      <text style="color: {{index == 2? '#007fff': '#000'}}; border-bottom: {{index == 2? 4: 0}}rpx solid #007fff;" data-index="2" catchtap="tabSwitch">动态</text>
     </view>
     <view class="list-content" wx:if="{{index == 1}}">
       <view class="list-item" wx:for="{{lists}}" wx:key="*this">
+        <view class='slide'>
+          <slide-view width="750" height="110" slide-width="300">
+            <view slot="left" class="l">
+              <view class='text'>
+                <view class='title'>删除此条</view>
+              </view>
+            </view>
+            <view slot="right" class="r">
+              <view style="display: flex;position: relative;">
+                <view class='read'>标为已读</view>
+                <view class='delete'>删除</view>
+              </view>
+            </view>
+          </slide-view>
+        </view>
         <template is="lists-item" data="{{item, defaultImg}}" />
       </view>
     </view>

@@ -2,7 +2,4 @@
   <block wx:if="{{movieDetails.trailer_urls.length}}">
     <video id="video" src="{{url}}"></video>
   </block>
-  <block wx:else>
-    <view class="tips">地址解析错误</view>
-  </block>
 </view>

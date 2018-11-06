@@ -50,7 +50,7 @@ Component({
       const query = wx.createSelectorQuery().in(this)
       query.select('.right').boundingClientRect(function(res) {
         that._slideWidth = res.width
-        that._threshold = res.width / 2
+        that._threshold = 20
         that._viewWidth = that.data.width + res.width * (750 / _windowWidth)
         that.setData({
           viewWidth: that._viewWidth

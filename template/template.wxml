@@ -209,21 +209,6 @@
 
 <!--掘金列表区-->
 <template name="lists-item">
-  <view class='slide'>
-    <slide-view width="750" height="110" slide-width="300">
-      <view slot="left" class="l">
-        <view class='text'>
-          <view class='title'>删除此条</view>
-        </view>
-      </view>
-      <view slot="right" class="r">
-        <view style="display: flex;position: relative;">
-          <view class='read'>标为已读</view>
-          <view class='delete'>删除</view>
-        </view>
-      </view>
-    </slide-view>
-  </view>
   <view class="meta-list">
     <view class="user-img-wrap">
       <image class="user-img" src="{{item.user.avatarLarge }}"></image>
