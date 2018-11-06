@@ -95,11 +95,11 @@ Component({
     onChange(e) {
       if (!this.data.out && e.detail.x < -this._threshold) {
         this.setData({
-          out: true
+          out: false
         })
       } else if (this.data.out && e.detail.x >= -this._threshold) {
         this.setData({
-          out: false
+          out: true
         })
       }
     }
